@@ -111,6 +111,18 @@
     <a href="https://wa.me/6287729044780" target="_blank">WhatsApp: 0877-2904-4780</a>
   </div>
   <p onclick="resetChat()" id="reset-label">Reset Chat</p>
+  <p onclick="unlockDeveloper()" id="developer-label">Developer (Terkunci) 🔒</p>
+<div id="developer" class="settings-submenu" style="display: none;">
+  <p><b>INFO PENGEMBANG:</b></p>
+  <p>Halo! Saya Fariz, pengembang SkyAI Enterprise.</p>
+  <p>Sedang dipersiapkan update besar-besaran yang akan membawa:</p>
+  <ul>
+    <li>Desain UI Baru</li>
+    <li>Mode Chat Lebih Cerdas</li>
+    <li>Dukungan Multi-API</li>
+    <li>Fitur Login dan Personalisasi</li>
+  </ul>
+  <p>Stay tuned dan terima kasih sudah menggunakan SkyAI!</p>
 </div>
 
 <div class="center">
@@ -250,7 +262,17 @@
       const msg = translations[language].start;
       log.innerHTML += `<p><b>ENTERPRISE:</b> ${msg}</p>`;
     }
-
+    
+    function unlockDeveloper() {
+      const password = prompt("Masukkan password developer:");
+      if (password === "ENTERPRISE2025/2030") {
+      document.getElementById("developer").style.display = "block";
+      document.getElementById("developer-label").innerText = "Developer ▼";
+      alert("Akses Developer berhasil dibuka!");
+  } else {
+      alert("Password salah!");
+  }
+    }
     async function sendMessage() {
       const input = document.getElementById("userInput").value;
       const log = document.getElementById("chatlogs");
@@ -280,4 +302,4 @@
     }
   </script>
 </body>
-</html>
+  </html>
