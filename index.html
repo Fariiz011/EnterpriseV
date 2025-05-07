@@ -272,9 +272,9 @@
       themeToggleText.innerHTML = '☀️ Mode Terang';
     } else {
       themeToggleText.innerHTML = '🌙 Mode Gelap';
-    }
-</script>
-   async function sendMessage() {
+
+  <script>
+    async function sendMessage() {
       const input = document.getElementById("userInput").value;
       const log = document.getElementById("chatlogs");
       log.innerHTML += `<p><b>Kamu:</b> ${input}</p>`;
@@ -300,7 +300,7 @@
         log.innerHTML += `<p><b>Enterprise:</b> ${translations[language].error}</p>`;
       }
       document.getElementById("userInput").value = '';
-    }
-  </script>
+     }
+ </script>
 </body>
   </html>
