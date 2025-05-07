@@ -3,6 +3,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AI - Enterprise</title>
+  <!-- META TAG -->
+  <meta name="title" content="AI-Enterprise - Chatbot AI Buatan Anak Keren">
+  <meta name="description" content="AI Enterprise adalah chatbot AI ringan buatan anak Indonesia. Bisa bantu belajar berbagai pelajaran dengan gaya santai dan pintar.">
+  <meta name="author" content="(RIZZ ENTERPRISE) M.Fariz">
+  <meta name="keywords" content="chatbot AI Indonesia, Enterprise, belajar AI, chatbot pelajar, AI ringan, buatan anak Indonesia">
+  <meta property="og:url" content="https://fariiz011.github.io/Router">
+  <meta property="og:title" content="AI Enterprise - Chatbot AI Buatan Anak Keren">
+  <meta property="og:description" content="Chatbot AI ringan buatan anak Indonesia. Bisa bantu belajar berbagai pelajaran secara cerdas dan santai.">
+  <meta property="og:image" content="https://fariiz011.github.io/Router/logo.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Enterprise - Chatbot AI Buatan Anak Keren">
+  <meta name="twitter:description" content="SkyAI adalah chatbot AI ringan yang bisa bantu belajar dengan gaya santai.">
+  <meta name="twitter:image" content="https://fariiz011.github.io/Router/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Quantico&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -21,21 +36,6 @@
       align-items: center;
       z-index: 9999;
       animation: fadeOut 3s ease-in-out forwards;
-    }
-    <style>
-      body.dark-mode {
-      background-color: #121212;
-      color: #f0f0f0;
-    }
-
-  .settings-submenu.dark-mode {
-      background-color: #1e1e1e;
-      border-color: #333;
-    }
-
-  #settings-menu.dark-mode, #settings-button.dark-mode {
-      background-color: #1e1e1e;
-      color: #f0f0f0;
     }
     .splash-logo { width: 190px; animation: fadeIn 2s ease-in-out; }
     .fade-text { font-size: 1.5rem; margin-top: 20px; animation: fadeInUp 1.5s ease-in-out; }
@@ -99,8 +99,6 @@
     <p onclick="setLanguage('ja')">日本語🇯🇵</p>
     <p onclick="setLanguage('ru')">Русский🇷🇺</p>
     <p onclick="setLanguage('zh')">中文🇨🇳</p>
-    <p onclick="toggleSubmenu('profile')" id="profile-label">Profil Pembuat ▼</p>
-    
   </div>
   <p onclick="toggleSubmenu('about')" id="about-label">Tentang SkyAI ▼</p>
   <div id="about" class="settings-submenu">
@@ -113,17 +111,7 @@
     <a href="https://wa.me/6287729044780" target="_blank">WhatsApp: 0877-2904-4780</a>
   </div>
   <p onclick="resetChat()" id="reset-label">Reset Chat</p>
-  <p onclick="toggleSubmenu('profile')" id="profile-label">Profil Pembuat ▼</p>
-<div id="profile" class="settings-submenu">
-  <p>Nama: M. Fariz</p>
-  <p>Role: Developer Enterprise</p>
-  <p>WhatsApp: <a href="https://wa.me/6287729044780" target="_blank">087729044780</a></p>
-  <p>Instagram: <a href="https://www.instagram.com/rinzzqt_?igsh=MXczZXI3eW1nbHdmMQ==" target="_blank">@rinzzqt_</a></p>
-  <p>Email: <a href="mailto:rizzenterprise01@gmail.com">rizzenterprise01@gmail.com</a></p>
-  <p>bio: hobiku turu dan malas belajar.</p>
-  <p onclick="toggleTheme()" id="theme-toggle">🌙 Mode Gelap</p>
 </div>
-  </div>
 
 <div class="center">
   <img src="logo enterprise.png" alt="enterprise Logo" style="width:210px"/>
@@ -262,18 +250,7 @@
       const msg = translations[language].start;
       log.innerHTML += `<p><b>ENTERPRISE:</b> ${msg}</p>`;
     }
-    
-    function toggleTheme() {
-      const body = document.body;
-      const themeToggleText = document.getElementById('theme-toggle');
-      body.classList.toggle('dark-mode');
 
-      if (body.classList.contains('dark-mode')) {
-      themeToggleText.innerHTML = '☀️ Mode Terang';
-    } else {
-      themeToggleText.innerHTML = '🌙 Mode Gelap';
-
-  <script>
     async function sendMessage() {
       const input = document.getElementById("userInput").value;
       const log = document.getElementById("chatlogs");
@@ -300,7 +277,7 @@
         log.innerHTML += `<p><b>Enterprise:</b> ${translations[language].error}</p>`;
       }
       document.getElementById("userInput").value = '';
-     }
- </script>
+    }
+  </script>
 </body>
-  </html>
+</html>
