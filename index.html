@@ -63,6 +63,27 @@
     }
     .chatlogs { margin-top:10px; }
     .footer { text-align:center; margin-top:3rem; font-size:12px; }
+     body.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.dark-theme .chatbox,
+.dark-theme .settings-menu,
+.dark-theme .settings-submenu,
+.dark-theme .footer-text,
+.dark-theme .chatlogs,
+.dark-theme #userInput {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.dark-theme input,
+.dark-theme button {
+  background-color: #2a2a2a;
+  color: #ffffff;
+  border: 1px solid #555;
+}
   </style>
 </head>
 <body>
@@ -96,13 +117,14 @@
     <a href="https://wa.me/6287729044780" target="_blank">WhatsApp: 0877-2904-4780</a>
   </div>
   <p onclick="resetChat()" id="reset-label">Reset Chat</p>
+  <p onclick="toggleTheme()">Ganti Tema</p>
   <p onclick="toggleSubmenu('profile')" id="profile-label">Profil ▼</p>
 <div id="profile" class="settings-submenu">
-  <p><label for="profile-name">Nama:</label></p>
+  <p><label for="profile-name">M.Fariz:</label></p>
   <input type="text" id="profile-name" placeholder="Masukkan nama">
-  <p><label for="profile-email">Email:</label></p>
+  <p><label for="profile-email">rizzenterprise01@gmail.com:</label></p>
   <input type="email" id="profile-email" placeholder="Masukkan email">
-  <p><label for="profile-avatar">URL Foto:</label></p>
+  <p><label for="profile-avatar">https://www.google.com/search?q=3d+cartoon+character+avatar+ai+3d&client=ms-android-samsung-gj-rev1&sca_esv=0370362934c86a31&sxsrf=AHTn8zr04m9RbxD19mm2wZ7YP9s-ZlCgMQ%3A1746713493609&ei=lbscaMnoJICwseMPhZuLsQ8&udm=2&oq=&gs_lp=EhNtb2JpbGUtZ3dzLXdpei1zZXJwIgAqAggEMgcQIxgnGOoCMg0QLhjRAxjHARgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMg0QIxjwBRgnGMkCGOoCMgcQIxgnGOoCMg0QIxjwBRgnGMkCGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCSIEcUN8IWOYPcAJ4AJABApgBwQKgAYwQqgEHMC44LjIuMbgBAcgBAPgBAZgCA6ACygKoAg_CAgoQABiwAxjWBBhHwgIKECMYgAQYJxiKBcICBhAAGBYYHsICBRAhGKABwgIIEAAYgAQYogTCAgUQABjvBZgDOPEFd7X_k10Ve9aIBgGQBgiSBwUyLjAuMaAH4TuyBwMyLTG4B98BwgcFNC0xLjLIB4QB&sclient=mobile-gws-wiz-serp:</label></p>
   <input type="text" id="profile-avatar" placeholder="Link gambar profil">
   <button onclick="saveProfile()" style="margin-top:10px;">Simpan</button>
 </div>
@@ -196,6 +218,20 @@
         fail: "对不起，我无法回答。"
       }
     };
+    <script>
+  function toggleTheme() {
+    const body = document.body;
+    body.classList.toggle('dark-theme');
+    const theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+    localStorage.setItem('theme', theme);
+  }
+
+  window.onload = function () {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-theme');
+    }
+  }
     function saveProfile() {
   const name = document.getElementById("profile-name").value;
   const email = document.getElementById("profile-email").value;
