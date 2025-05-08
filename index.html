@@ -64,15 +64,6 @@
       }
       .chatlogs { margin-top:10px; }
       .footer { text-align:center; margin-top:3rem; font-size:12px; }
-      body {
-      background-color: white;
-      color: black;
-      transition: background-color 0.3s, color 0.3s;
-      }
-      body.dark-mode {
-      background-color: #121212;
-      color: white;
-      }
     </style>
   </head>
   <body>
@@ -96,13 +87,28 @@
           <p onclick="setLanguage('ja')">日本語🇯🇵</p>
           <p onclick="setLanguage('ru')">Русский🇷🇺</p>
           <p onclick="setLanguage('zh')">中文🇨🇳</p>
-          <div id="settings">
-            <ul>
-              <li>
-                <p onclick="toggleMode()">Mode Gelap/Terang</p>
-              </li>
-            </ul>
-          </div>
+        </div>
+        <p onclick="toggleSubmenu('profile')" id="profile-label">Edit Profil ▼</p>
+        <div id="profile" class="settings-submenu">
+          <p><strong>Nama:</strong> <span id="profile-name">John Doe</span></p>
+          <p><strong>Daerah:</strong> <span id="profile-location">Jakarta</span></p>
+          <p><strong>Tanggal Lahir:</strong> <span id="profile-birthday">1 Januari 2000</span></p>
+          <p><strong>Hobi:</strong> <span id="profile-hobby">Membaca Buku</span></p>
+          <button onclick="editProfile()">Edit Profil</button>
+        </div>
+        <!-- Form Edit Profil -->
+        <div id="edit-profile-form" class="settings-submenu" style="display: none;">
+          <h2>Edit Profil</h2>
+          <label for="name">Nama:</label>
+          <input type="text" id="name" value="John Doe">
+          <label for="location">Daerah:</label>
+          <input type="text" id="location" value="Jakarta">
+          <label for="birthday">Tanggal Lahir:</label>
+          <input type="date" id="birthday" value="2000-01-01">
+          <label for="hobby">Hobi:</label>
+          <input type="text" id="hobby" value="Membaca Buku">
+          <button onclick="saveProfile()">Simpan Profil</button>
+          <button onclick="cancelEdit()">Batal</button>
         </div>
         <p onclick="toggleSubmenu('about')" id="about-label">Tentang SkyAI ▼</p>
         <div id="about" class="settings-submenu">
@@ -203,7 +209,39 @@
           fail: "对不起，我无法回答。"
         }
       };
+      function toggleSubmenu(submenuId) {
+      var submenu = document.getElementById(submenuId);
+      if (submenu.style.display === "none" || submenu.style.display === "") {
+          submenu.style.display = "block";
+      } else {
+          submenu.style.display = "none";
+      }
+      }
       
+      function editProfile() {
+      document.getElementById('profile').style.display = 'none';
+      document.getElementById('edit-profile-form').style.display = 'block';
+      }
+      
+      function saveProfile() {
+      const name = document.getElementById('name').value;
+      const location = document.getElementById('location').value;
+      const birthday = document.getElementById('birthday').value;
+      const hobby = document.getElementById('hobby').value;
+      
+      document.getElementById('profile-name').textContent = name;
+      document.getElementById('profile-location').textContent = location;
+      document.getElementById('profile-birthday').textContent = birthday;
+      document.getElementById('profile-hobby').textContent = hobby;
+      
+      document.getElementById('edit-profile-form').style.display = 'none';
+      document.getElementById('profile').style.display = 'block';
+      }
+      
+      function cancelEdit() {
+      document.getElementById('edit-profile-form').style.display = 'none';
+      document.getElementById('profile').style.display = 'block';
+      }
       function updateUI() {
         document.getElementById("welcome-text").innerHTML = translations[language].welcome;
         document.getElementById("send-btn").innerText = translations[language].send;
@@ -224,10 +262,6 @@
           updateUI();
         }, 3000);
       });
-      
-      function toggleMode() {
-      document.body.classList.toggle('dark-mode');
-      }
       
       function toggleSettings() {
         const menu = document.getElementById("settings-menu");
@@ -270,7 +304,7 @@
             body: JSON.stringify({
               model: "command-r-plus",
               message: input,
-              temperature: 0.9,
+              temperature: 0.7,
               chat_history: [],
               prompt_truncation: "auto"
             })
