@@ -1,9 +1,12 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+
+<html lang="id">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>AI - Enterprise</title>
-<style>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>AI - Enterprise</title>
+  <style>
     body {
       margin: 0;
       font-family: 'Quantico', sans-serif;
@@ -82,79 +85,118 @@
      color: #ffffff;
      border: 1px solid #555;
    }
-</style>
+  </style>
 </head>
+
 <body>
-<div id="splash-screen">
-	<img src="logo enterprise.png" alt="enterprise Logo" class="splash-logo"/>
-	<h1 class="fade-text">Welcome to <span style="color:#00d9ff;">ENTERPRISE</span></h1>
-</div>
-<div id="main-content" style="display:none;">
-	<header>
-	<div class="logo">
-		<img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg" alt="Flag" id="flag"/>
-		<b id="lang-code">(IDN)</b>
-	</div>
-	<div class="settings-icon" onclick="toggleSettings()">⚙️</div>
-	</header>
-	<div id="settings-menu" class="settings-menu">
-		<p onclick="toggleSubmenu('lang')">Pilih Bahasa ▼</p>
-		<div id="lang" class="settings-submenu">
-			<p onclick="setLanguage('id')">Indonesian🇮🇩</p>
-			<p onclick="setLanguage('en')">English🇬🇧</p>
-			<p onclick="setLanguage('ja')">日本語🇯🇵</p>
-			<p onclick="setLanguage('ru')">Русский🇷🇺</p>
-			<p onclick="setLanguage('zh')">中文🇨🇳</p>
-		</div>
-		<p onclick="toggleSubmenu('about')" id="about-label">Tentang SkyAI ▼</p>
-		<div id="about" class="settings-submenu">
-			<p id="about-version">AI-Enterprise versi 1.0.</p>
-			<p id="about-dev">
-				Dibuat oleh M.Fariz AI Enterprise Ini Masih Tahap Pengembangan!
-			</p>
-		</div>
-		<p onclick="toggleSubmenu('support')" id="support-label">Support ▼</p>
-		<div id="support" class="settings-submenu">
-			<a href="mailto:rizzenterprise01@gmail.com">Email: rizzenterprise01@gmail.com</a>
-			<a href="https://wa.me/6287729044780" target="_blank">WhatsApp: 0877-2904-4780</a>
-		</div>
-		<p onclick="resetChat()" id="reset-label">Reset Chat</p>
-		<p onclick="toggleTheme()">Ganti Tema</p>
-		<p onclick="toggleSubmenu('profile')" id="profile-label">Profil ▼</p>
-		<div id="profile" class="settings-submenu">
-			<p>
-				<label for="profile-name">M.Fariz:</label>
-			</p>
-			<input type="text" id="profile-name" placeholder="Masukkan nama">
-			<p>
-				<label for="profile-email">rizzenterprise01@gmail.com:</label>
-			</p>
-			<input type="email" id="profile-email" placeholder="Masukkan email">
-			<p>
-				<label for="profile-avatar">https://www.google.com/search?q=3d+cartoon+character+avatar+ai+3d&client=ms-android-samsung-gj-rev1&sca_esv=0370362934c86a31&sxsrf=AHTn8zr04m9RbxD19mm2wZ7YP9s-ZlCgMQ%3A1746713493609&ei=lbscaMnoJICwseMPhZuLsQ8&udm=2&oq=&gs_lp=EhNtb2JpbGUtZ3dzLXdpei1zZXJwIgAqAggEMgcQIxgnGOoCMg0QLhjRAxjHARgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMg0QIxjwBRgnGMkCGOoCMgcQIxgnGOoCMg0QIxjwBRgnGMkCGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCSIEcUN8IWOYPcAJ4AJABApgBwQKgAYwQqgEHMC44LjIuMbgBAcgBAPgBAZgCA6ACygKoAg_CAgoQABiwAxjWBBhHwgIKECMYgAQYJxiKBcICBhAAGBYYHsICBRAhGKABwgIIEAAYgAQYogTCAgUQABjvBZgDOPEFd7X_k10Ve9aIBgGQBgiSBwUyLjAuMaAH4TuyBwMyLTG4B98BwgcFNC0xLjLIB4QB&sclient=mobile-gws-wiz-serp:</label>
-			</p>
-			<input type="text" id="profile-avatar" placeholder="Link gambar profil">
-			<button onclick="saveProfile()" style="margin-top:10px;">Simpan</button>
-		</div>
-	</div>
-	<div class="center">
-		<img src="logo enterprise.png" alt="enterprise Logo" style="width:210px"/>
-		<h1 id="welcome-text">Welcome to <span style="color:#00d9ff">ENTERPRISE</span></h1>
-	</div>
-	<div class="chatbox">
-		<div class="chatlogs" id="chatlogs"></div>
-		<input type="text" id="userInput" placeholder="Tulis pertanyaan di sini...">
-		<button onclick="sendMessage()" id="send-btn">Kirim</button>
-	</div>
-	<div class="footer" id="footer-text">
-		 Dibuat oleh <b>RIZ-ENTERPRISE</b> | © 2025 SKY.AI INDONESIAN🇮🇩
-	</div>
-</div>
-<script>
+  <div id="splash-screen">
+    <img alt="enterprise Logo" class="splash-logo" src="logo%20enterprise.png">
+
+    <h1 class="fade-text">Welcome to <span style="color:#00d9ff;">ENTERPRISE</span></h1>
+  </div>
+
+
+  <div id="main-content" style="display:none;">
+    <header>
+      <div class="logo">
+        <img alt="Flag" id="flag" src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg"> <b id="lang-code">(IDN)</b>
+      </div>
+
+
+      <div class="settings-icon" onclick="toggleSettings()">
+        ⚙️
+      </div>
+    </header>
+
+
+    <div class="settings-menu" id="settings-menu">
+      <p onclick="toggleSubmenu('lang')">Pilih Bahasa ▼</p>
+
+
+      <div class="settings-submenu" id="lang">
+        <p onclick="setLanguage('id')">Indonesian🇮🇩</p>
+
+
+        <p onclick="setLanguage('en')">English🇬🇧</p>
+
+
+        <p onclick="setLanguage('ja')">日本語🇯🇵</p>
+
+
+        <p onclick="setLanguage('ru')">Русский🇷🇺</p>
+
+
+        <p onclick="setLanguage('zh')">中文🇨🇳</p>
+      </div>
+
+
+      <p id="about-label" onclick="toggleSubmenu('about')">Tentang SkyAI ▼</p>
+
+
+      <div class="settings-submenu" id="about">
+        <p id="about-version">AI-Enterprise versi 1.0.</p>
+
+
+        <p id="about-dev">Dibuat oleh M.Fariz AI Enterprise Ini Masih Tahap Pengembangan!</p>
+      </div>
+
+
+      <p id="support-label" onclick="toggleSubmenu('support')">Support ▼</p>
+
+
+      <div class="settings-submenu" id="support">
+        <a href="mailto:rizzenterprise01@gmail.com">Email: rizzenterprise01@gmail.com</a> <a href="https://wa.me/6287729044780" target="_blank">WhatsApp: 0877-2904-4780</a>
+      </div>
+
+
+      <p id="reset-label" onclick="resetChat()">Reset Chat</p>
+
+
+      <p onclick="toggleTheme()">Ganti Tema</p>
+
+
+      <p id="profile-label" onclick="toggleSubmenu('profile')">Profil ▼</p>
+
+
+      <div class="settings-submenu" id="profile">
+        <p><label for="profile-name">M.Fariz:</label>
+        </p>
+        <input id="profile-name" placeholder="Masukkan nama" type="text">
+
+        <p><label for="profile-email">rizzenterprise01@gmail.com:</label>
+        </p>
+        <input id="profile-email" placeholder="Masukkan email" type="email">
+
+        <p><label for="profile-avatar">https://www.google.com/search?q=3d+cartoon+character+avatar+ai+3d&client=ms-android-samsung-gj-rev1&sca_esv=0370362934c86a31&sxsrf=AHTn8zr04m9RbxD19mm2wZ7YP9s-ZlCgMQ%3A1746713493609&ei=lbscaMnoJICwseMPhZuLsQ8&udm=2&oq=&gs_lp=EhNtb2JpbGUtZ3dzLXdpei1zZXJwIgAqAggEMgcQIxgnGOoCMg0QLhjRAxjHARgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMg0QIxjwBRgnGMkCGOoCMgcQIxgnGOoCMg0QIxjwBRgnGMkCGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCSIEcUN8IWOYPcAJ4AJABApgBwQKgAYwQqgEHMC44LjIuMbgBAcgBAPgBAZgCA6ACygKoAg_CAgoQABiwAxjWBBhHwgIKECMYgAQYJxiKBcICBhAAGBYYHsICBRAhGKABwgIIEAAYgAQYogTCAgUQABjvBZgDOPEFd7X_k10Ve9aIBgGQBgiSBwUyLjAuMaAH4TuyBwMyLTG4B98BwgcFNC0xLjLIB4QB&sclient=mobile-gws-wiz-serp:</label>
+        </p>
+        <input id="profile-avatar" placeholder="Link gambar profil" type="text"> <button onclick="saveProfile()" style="margin-top:10px;">Simpan</button>
+      </div>
+    </div>
+
+
+    <div class="center">
+      <img alt="enterprise Logo" src="logo%20enterprise.png" style="width:210px">
+
+      <h1 id="welcome-text">Welcome to <span style="color:#00d9ff">ENTERPRISE</span></h1>
+    </div>
+
+
+    <div class="chatbox">
+      <div class="chatlogs" id="chatlogs">
+      </div>
+      <input id="userInput" placeholder="Tulis pertanyaan di sini..." type="text"> <button id="send-btn" onclick="sendMessage()">Kirim</button>
+    </div>
+
+
+    <div class="footer" id="footer-text">
+      Dibuat oleh <b>RIZ-ENTERPRISE</b> | © 2025 SKY.AI INDONESIAN🇮🇩
+    </div>
+  </div>
+  <script>
     let language = 'id';
     const translations = {
       id: {
-        welcome: "Welcome to <span style='color:#00d9ff'>ENTERPRISE</span>",
+        welcome: "Welcome to <span style='color:#00d9ff'>ENTERPRISE<\/span>",
         send: "Kirim",
         placeholder: "Tulis pertanyaan di sini...",
         start: "Hai! Aku Prise, ada yang bisa aku bantu?",
@@ -163,12 +205,12 @@
         dev: "Dibuat oleh M.Fariz AI Enterprise Ini Masih Tahap Pengembangan!",
         support: "Support ▼",
         reset: "Reset Chat",
-        footer: "Dibuat oleh <b>RIZ-ENTERPRISE</b> | © 2025 SKY.AI INDONESIAN🇮🇩",
+        footer: "Dibuat oleh <b>RIZ-ENTERPRISE<\/b> | © 2025 SKY.AI INDONESIAN🇮🇩",
         error: "Terjadi kesalahan koneksi.",
         fail: "Maaf, tidak bisa menjawab."
       },
       en: {
-        welcome: "Welcome to <span style='color:#00d9ff'>ENTERPRISE</span>",
+        welcome: "Welcome to <span style='color:#00d9ff'>ENTERPRISE<\/span>",
         send: "Send",
         placeholder: "Type your question here...",
         start: "Hi! I'm Prise, how can I assist you?",
@@ -177,12 +219,12 @@
         dev: "Created by M.Fariz. This is still under development!",
         support: "Support ▼",
         reset: "Reset Chat",
-        footer: "Made by <b>RIZ-ENTERPRISE</b> | © 2025 SKY.AI INDONESIAN🇮🇩",
+        footer: "Made by <b>RIZ-ENTERPRISE<\/b> | © 2025 SKY.AI INDONESIAN🇮🇩",
         error: "Connection error.",
         fail: "Sorry, I can't answer that."
       },
       ja: {
-        welcome: "ようこそ <span style='color:#00d9ff'>ENTERPRISE</span>へ",
+        welcome: "ようこそ <span style='color:#00d9ff'>ENTERPRISE<\/span>へ",
         send: "送信",
         placeholder: "ここに質問を入力してください...",
         start: "こんにちは！私はプライスです。どうしましたか？",
@@ -191,12 +233,12 @@
         dev: "M.Farizによって作成。まだ開発中です！",
         support: "サポート ▼",
         reset: "チャットをリセット",
-        footer: "制作：<b>RIZ-ENTERPRISE</b> | © 2025 SKY.AI INDONESIAN🇯🇵",
+        footer: "制作：<b>RIZ-ENTERPRISE<\/b> | © 2025 SKY.AI INDONESIAN🇯🇵",
         error: "接続エラー。",
         fail: "申し訳ありませんが、回答できません。"
       },
       ru: {
-        welcome: "Добро пожаловать в <span style='color:#00d9ff'>ENTERPRISE</span>",
+        welcome: "Добро пожаловать в <span style='color:#00d9ff'>ENTERPRISE<\/span>",
         send: "Отправить",
         placeholder: "Введите ваш вопрос здесь...",
         start: "Привет! Я Прайс. Чем могу помочь?",
@@ -205,12 +247,12 @@
         dev: "Создано M.Fariz. Пока в разработке!",
         support: "Поддержка ▼",
         reset: "Сбросить чат",
-        footer: "Создано <b>RIZ-ENTERPRISE</b> | © 2025 SKY.AI INDONESIAN🇷🇺",
+        footer: "Создано <b>RIZ-ENTERPRISE<\/b> | © 2025 SKY.AI INDONESIAN🇷🇺",
         error: "Ошибка соединения.",
         fail: "Извините, я не могу ответить."
       },
       zh: {
-        welcome: "欢迎来到 <span style='color:#00d9ff'>ENTERPRISE</span>",
+        welcome: "欢迎来到 <span style='color:#00d9ff'>ENTERPRISE<\/span>",
         send: "发送",
         placeholder: "在此输入你的问题...",
         start: "你好！我是Prise，我能帮你什么？",
@@ -219,7 +261,7 @@
         dev: "由 M.Fariz 创建，仍在开发中！",
         support: "支持 ▼",
         reset: "重置聊天",
-        footer: "由<b>RIZ-ENTERPRISE</b>创建 | © 2025 SKY.AI INDONESIAN🇨🇳",
+        footer: "由<b>RIZ-ENTERPRISE<\/b>创建 | © 2025 SKY.AI INDONESIAN🇨🇳",
         error: "连接错误。",
         fail: "对不起，我无法回答。"
       }
@@ -243,15 +285,15 @@
   const avatar = document.getElementById("profile-avatar").value;
   alert(`Profil disimpan:\nNama: ${name}\nEmail: ${email}`);
   localStorage.setItem("userProfile", JSON.stringify({ name, email, avatar }));
-}
-window.addEventListener("DOMContentLoaded", () => {
+  }
+  window.addEventListener("DOMContentLoaded", () => {
   const profile = JSON.parse(localStorage.getItem("userProfile"));
   if (profile) {
     document.getElementById("profile-name").value = profile.name;
     document.getElementById("profile-email").value = profile.email;
     document.getElementById("profile-avatar").value = profile.avatar;
   }
-});
+  });
     function updateUI() {
       document.getElementById("welcome-text").innerHTML = translations[language].welcome;
       document.getElementById("send-btn").innerText = translations[language].send;
@@ -291,12 +333,12 @@ window.addEventListener("DOMContentLoaded", () => {
     function startSkyAIChat() {
       const log = document.getElementById("chatlogs");
       const msg = translations[language].start;
-      log.innerHTML += `<p><b>ENTERPRISE:</b> ${msg}</p>`;
+      log.innerHTML += `<p><b>ENTERPRISE:<\/b> ${msg}<\/p>`;
     }
     async function sendMessage() {
       const input = document.getElementById("userInput").value;
       const log = document.getElementById("chatlogs");
-      log.innerHTML += `<p><b>Kamu:</b> ${input}</p>`;
+      log.innerHTML += `<p><b>Kamu:<\/b> ${input}<\/p>`;
       try {
         const res = await fetch("https://api.cohere.ai/v1/chat", {
           method: "POST",
@@ -314,12 +356,12 @@ window.addEventListener("DOMContentLoaded", () => {
         });
         const data = await res.json();
         const output = data.text || translations[language].fail;
-        log.innerHTML += `<p><b>Enterprise:</b> ${output}</p>`;
+        log.innerHTML += `<p><b>Enterprise:<\/b> ${output}<\/p>`;
       } catch {
-        log.innerHTML += `<p><b>Enterprise:</b> ${translations[language].error}</p>`;
+        log.innerHTML += `<p><b>Enterprise:<\/b> ${translations[language].error}<\/p>`;
       }
       document.getElementById("userInput").value = '';
     }
   </script>
 </body>
-      </html>
+ </html>
