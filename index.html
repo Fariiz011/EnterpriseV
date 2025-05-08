@@ -110,6 +110,16 @@
           <button onclick="saveProfile()">Simpan Profil</button>
           <button onclick="cancelEdit()">Batal</button>
         </div>
+        <p onclick="toggleSubmenu('model-selection')" id="model-selection-label">Pilih Gaya Model ▼</p>
+        <div id="model-selection" class="settings-submenu">
+          <label for="model-select">Pilih Gaya Model:</label>
+          <select id="model-select" onchange="changeModel()">
+            <option value="google-gemma-3-27b-it">google/gemma-3-27b-it</option>
+            <option value="google-gemini-2-0-flash-exp">google/gemini-2.0-flash-exp</option>
+            <option value="deepseek-deepseek-r1">deepseek/deepseek-r1</option>
+            <option value="deepseek-deepseek-chat-v3-0324">deepseek/deepseek-chat-v3-0324</option>
+          </select>
+        </div>
         <p onclick="toggleSubmenu('about')" id="about-label">Tentang SkyAI ▼</p>
         <div id="about" class="settings-submenu">
           <p id="about-version">AI-Enterprise versi 1.0.</p>
@@ -209,6 +219,16 @@
           fail: "对不起，我无法回答。"
         }
       };
+      function changeModel() {
+      var model = document.getElementById("model-select").value;
+      alert("Model yang dipilih: " + model);
+      }
+      
+      function toggleSubmenu(submenuId) {
+      var submenu = document.getElementById(submenuId);
+      submenu.style.display = submenu.style.display === "none" || submenu.style.display === "" ? "block" : "none";
+          }
+      
       function toggleSubmenu(submenuId) {
       var submenu = document.getElementById(submenuId);
       if (submenu.style.display === "none" || submenu.style.display === "") {
