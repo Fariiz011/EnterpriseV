@@ -3,6 +3,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AI - Enterprise</title>
+  <!-- META TAG -->
+  <meta name="title" content="AI-Enterprise - Chatbot AI Buatan Anak Keren">
+  <meta name="description" content="AI Enterprise adalah chatbot AI ringan buatan anak Indonesia. Bisa bantu belajar berbagai pelajaran dengan gaya santai dan pintar.">
+  <meta name="author" content="(RIZZ ENTERPRISE) M.Fariz">
+  <meta name="keywords" content="chatbot AI Indonesia, Enterprise, belajar AI, chatbot pelajar, AI ringan, buatan anak Indonesia">
+  <meta property="og:url" content="https://fariiz011.github.io/Router">
+  <meta property="og:title" content="AI Enterprise - Chatbot AI Buatan Anak Keren">
+  <meta property="og:description" content="Chatbot AI ringan buatan anak Indonesia. Bisa bantu belajar berbagai pelajaran secara cerdas dan santai.">
+  <meta property="og:image" content="https://fariiz011.github.io/Router/logo.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Enterprise - Chatbot AI Buatan Anak Keren">
+  <meta name="twitter:description" content="SkyAI adalah chatbot AI ringan yang bisa bantu belajar dengan gaya santai.">
+  <meta name="twitter:image" content="https://fariiz011.github.io/Router/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Quantico&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -66,61 +81,6 @@
   </style>
 </head>
 <body>
-      <!-- Tombol Login & Logout -->
-<button id="login-btn">Login dengan Google</button>
-<button id="logout-btn" style="display: none;">Logout</button>
-<p id="user-info"></p>
-
-<!-- Chatbot Container (muncul setelah login) -->
-<div id="chatbot-container" style="display:none; margin-top:20px;">
-  <iframe
-    src="https://fariiz011.github.io/EnterpriseV/chatbot.html"
-    width="100%"
-    height="500"
-    style="border:1px solid #ccc;"
-  ></iframe>
-</div>
-
-<!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
-
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyCg5Md_sDdFcVQmu_g8Ol0s2IwK2SZaG1Q",
-    authDomain: "chatbot-38ec2.firebaseapp.com",
-    projectId: "chatbot-38ec2"
-  };
-
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-  const provider = new firebase.auth.GoogleAuthProvider();
-
-  // Login
-  document.getElementById("login-btn").addEventListener("click", () => {
-    auth.signInWithPopup(provider)
-      .then((result) => {
-        const user = result.user;
-        document.getElementById("user-info").textContent = `Halo, ${user.displayName}`;
-        document.getElementById("login-btn").style.display = "none";
-        document.getElementById("logout-btn").style.display = "inline";
-        document.getElementById("chatbot-container").style.display = "block";
-      })
-      .catch((error) => {
-        console.error("Login error:", error);
-      });
-  });
-
-  // Logout
-  document.getElementById("logout-btn").addEventListener("click", () => {
-    auth.signOut().then(() => {
-      document.getElementById("user-info").textContent = "";
-      document.getElementById("login-btn").style.display = "inline";
-      document.getElementById("logout-btn").style.display = "none";
-      document.getElementById("chatbot-container").style.display = "none";
-    });
-  });
-</script>
   <div id="splash-screen">
     <img src="logo enterprise.png" alt="enterprise Logo" class="splash-logo"/>
     <h1 class="fade-text">Welcome to <span style="color:#00d9ff;">ENTERPRISE</span></h1>
@@ -320,4 +280,4 @@
     }
   </script>
 </body>
-</html>
+    </html>
