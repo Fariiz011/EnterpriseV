@@ -96,8 +96,17 @@
     <a href="https://wa.me/6287729044780" target="_blank">WhatsApp: 0877-2904-4780</a>
   </div>
   <p onclick="resetChat()" id="reset-label">Reset Chat</p>
+  <p onclick="toggleSubmenu('profile')" id="profile-label">Profil ▼</p>
+<div id="profile" class="settings-submenu">
+  <p><label for="profile-name">Nama:</label></p>
+  <input type="text" id="profile-name" placeholder="Masukkan nama">
+  <p><label for="profile-email">Email:</label></p>
+  <input type="email" id="profile-email" placeholder="Masukkan email">
+  <p><label for="profile-avatar">URL Foto:</label></p>
+  <input type="text" id="profile-avatar" placeholder="Link gambar profil">
+  <button onclick="saveProfile()" style="margin-top:10px;">Simpan</button>
 </div>
-
+ </div>
 <div class="center">
   <img src="logo enterprise.png" alt="enterprise Logo" style="width:210px"/>
   <h1 id="welcome-text">Welcome to <span style="color:#00d9ff">ENTERPRISE</span></h1>
@@ -187,7 +196,23 @@
         fail: "对不起，我无法回答。"
       }
     };
+    function saveProfile() {
+  const name = document.getElementById("profile-name").value;
+  const email = document.getElementById("profile-email").value;
+  const avatar = document.getElementById("profile-avatar").value;
 
+  alert(`Profil disimpan:\nNama: ${name}\nEmail: ${email}`);
+  localStorage.setItem("userProfile", JSON.stringify({ name, email, avatar }));
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  const profile = JSON.parse(localStorage.getItem("userProfile"));
+  if (profile) {
+    document.getElementById("profile-name").value = profile.name;
+    document.getElementById("profile-email").value = profile.email;
+    document.getElementById("profile-avatar").value = profile.avatar;
+  }
+});
     function updateUI() {
       document.getElementById("welcome-text").innerHTML = translations[language].welcome;
       document.getElementById("send-btn").innerText = translations[language].send;
