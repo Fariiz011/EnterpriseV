@@ -154,6 +154,10 @@
       button:hover {
       background-color: #45a049;
       }
+      .settings-submenu input[type="color"] {
+  margin: 5px 0;
+  cursor: pointer;
+      }
     </style>
   </head>
   <body>
@@ -235,6 +239,17 @@
           <p onclick="toggleAutoUpdate()">Pembaruan Otomatis</p>
           <p onclick="viewUpdateHistory()">Riwayat Pembaruan</p>
         </div>
+          <p onclick="toggleSubmenu('custom-theme')">Modifikasi Tema ▼</p>
+<div id="custom-theme" class="settings-submenu">
+  <p onclick="setTheme('light')">Tema Terang</p>
+  <p onclick="setTheme('dark')">Tema Gelap</p>
+  <p onclick="setTheme('blue')">Tema Biru</p>
+  <p onclick="toggleSubmenu('custom-colors')">Tema Kustom ▼</p>
+  <div id="custom-colors" class="settings-submenu">
+    <label>Warna Latar: <input type="color" id="bg-color" value="#f5f5dc"></label><br>
+    <label>Warna Teks: <input type="color" id="text-color" value="#333333"></label><br>
+    <button onclick="applyCustomTheme()">Terapkan</button>
+  </div>
       </div>
       <div class="center">
         <img src="logo enterprise.png" alt="enterprise Logo" style="width:210px"/>
@@ -323,6 +338,14 @@
           fail: "对不起，我无法回答。"
         }
       };
+      function applyCustomTheme() {
+  const bg = document.getElementById('bg-color').value;
+  const text = document.getElementById('text-color').value;
+  document.body.style.backgroundColor = bg;
+  document.body.style.color = text;
+  alert('Tema kustom diterapkan!');
+      }
+      
       function toggleSubmenu(submenuId) {
       const submenu = document.getElementById(submenuId);
       submenu.classList.toggle('show');
