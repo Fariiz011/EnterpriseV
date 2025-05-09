@@ -140,11 +140,11 @@
       <div class="chatbox">
         <div class="chatlogs" id="chatlogs"></div>
         <input type="text" id="userInput" placeholder="Tulis pertanyaan di sini...">
-        <button onclick="sendMessage()" id="send-btn">></button>
+        <button onclick="sendMessage()" id="send-btn" "➣" </button>
       </div>
-      <div class="footer" id="footer-text">
-        Dibuat oleh <b>RIZ-ENTERPRISE</b> | © 2025 SKY.AI INDONESIAN🇮🇩
-      </div>
+        <button class="preset-button" onclick="sendPreset('Bicara dengan Enterprise')">Bicara dengan Enterprise</button>
+        <button class="preset-button" onclick="sendPreset('Apa yang dimaksud jaringan komputer?')">Apa yang dimaksud jaringan komputer?</button>
+        <button class="preset-button" onclick="sendPreset('Apa itu AI?')">Apa itu AI?</button>
     </div>
     <script>
       let language = 'id';
@@ -340,4 +340,4 @@
       }
     </script>
   </body>
-  </html>
+ </html>
