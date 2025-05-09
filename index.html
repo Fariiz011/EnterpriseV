@@ -113,6 +113,47 @@
       #personality p:hover {
       color: #00d9ff;
       }
+      .settings-submenu {
+      display: none;
+      padding-left: 20px;
+      margin-top: 10px;
+      }
+      .settings-submenu.show {
+      display: block;
+      animation: slideIn 0.3s ease-out;
+      }
+      @keyframes slideIn {
+      from {
+      transform: translateX(-10px);
+      opacity: 0;
+      }
+      to {
+      transform: translateX(0);
+      opacity: 1;
+      }
+      }
+      #settings-menu p {
+      cursor: pointer;
+      padding: 8px 15px;
+      margin: 0;
+      font-size: 16px;
+      }
+      #settings-menu p:hover {
+      background-color: #f0f0f0;
+      border-radius: 5px;
+      }
+      button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      }
+      button:hover {
+      background-color: #45a049;
+      }
     </style>
   </head>
   <body>
@@ -188,6 +229,12 @@
           <a href="https://wa.me/6287729044780" target="_blank">WhatsApp: 0877-2904-4780</a>
         </div>
         <p onclick="resetChat()" id="reset-label">Reset Chat</p>
+        <p onclick="toggleSubmenu('update-settings')" id="update-label">Pembaruan ▼</p>
+        <div id="update-settings" class="settings-submenu">
+          <p onclick="checkForUpdates()">Cek Pembaruan</p>
+          <p onclick="toggleAutoUpdate()">Pembaruan Otomatis</p>
+          <p onclick="viewUpdateHistory()">Riwayat Pembaruan</p>
+        </div>
       </div>
       <div class="center">
         <img src="logo enterprise.png" alt="enterprise Logo" style="width:210px"/>
@@ -276,6 +323,33 @@
           fail: "对不起，我无法回答。"
         }
       };
+      function toggleSubmenu(submenuId) {
+      const submenu = document.getElementById(submenuId);
+      submenu.classList.toggle('show');
+      }
+      
+      function checkForUpdates() {
+      alert("Memeriksa pembaruan...");
+      }
+      
+      function toggleAutoUpdate() {
+      const autoUpdate = localStorage.getItem("autoUpdate") === "true";
+      localStorage.setItem("autoUpdate", !autoUpdate);
+      alert(!autoUpdate ? "Pembaruan otomatis diaktifkan" : "Pembaruan otomatis dinonaktifkan");
+      }
+      
+      function viewUpdateHistory() {
+      alert("Menampilkan riwayat pembaruan...");
+      }
+      
+      function setLanguage(langCode) {
+      alert(`Bahasa diubah ke ${langCode}`);
+      }
+      
+      function editProfile() {
+      alert("Fitur Edit Profil belum tersedia.");
+      }  
+       
       function changeModel() {
       var model = document.getElementById("model-select").value;
       alert("Model yang dipilih: " + model);
@@ -396,4 +470,4 @@
       }
     </script>
   </body>
-</html>
+     </html>
