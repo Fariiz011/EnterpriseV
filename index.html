@@ -155,8 +155,8 @@
       background-color: #45a049;
       }
       .settings-submenu input[type="color"] {
-  margin: 5px 0;
-  cursor: pointer;
+      margin: 5px 0;
+      cursor: pointer;
       }
     </style>
   </head>
@@ -166,90 +166,90 @@
       <h1 class="fade-text">Welcome to <span style="color:#00d9ff;">ENTERPRISE</span></h1>
     </div>
     <div id="main-content" style="display:none;">
-      <header>
-        <div class="logo">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg" alt="Flag" id="flag"/>
-          <b id="lang-code">(IDN)</b>
+    <header>
+      <div class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg" alt="Flag" id="flag"/>
+        <b id="lang-code">(IDN)</b>
+      </div>
+      <div class="settings-icon" onclick="toggleSettings()">⚙️</div>
+    </header>
+    <div id="settings-menu" class="settings-menu">
+      <p onclick="toggleSubmenu('lang')">Bahasa ▼</p>
+      <div id="lang" class="settings-submenu">
+        <p onclick="setLanguage('id')">Indonesian🇮🇩</p>
+        <p onclick="setLanguage('en')">English🇬🇧</p>
+        <p onclick="setLanguage('ja')">Japan🇯🇵</p>
+        <p onclick="setLanguage('ru')">Russia🇷🇺</p>
+        <p onclick="setLanguage('zh')">China🇨🇳</p>
+      </div>
+      <p onclick="toggleSubmenu('profile')" id="profile-label">Profil ▼</p>
+      <div id="profile" class="settings-submenu">
+        <p><strong>Nama:</strong> <span id="profile-name">M.Fariz</span></p>
+        <p><strong>Daerah:</strong> <span id="profile-location">Cianjur/Jabar</span></p>
+        <p><strong>Tanggal Lahir:</strong> <span id="profile-birthday">8 Agustus 2008</span></p>
+        <p><strong>Hobi:</strong> <span id="profile-hobby">MAIN ML!</span></p>
+        <button onclick="editProfile()">Edit Profil</button>
+      </div>
+      <!-- Form Edit Profil -->
+      <div id="edit-profile-form" class="settings-submenu" style="display: none;">
+        <h2>Edit Profil</h2>
+        <label for="name">Nama:</label>
+        <input type="text" id="name" value=".M.Fariz">
+        <label for="location">Daerah:</label>
+        <input type="text" id="location" value="Cianjur/JawaBarat">
+        <label for="birthday">Tanggal Lahir:</label>
+        <input type="date" id="birthday" value="2008-08-08">
+        <label for="hobby">Hobi:</label>
+        <input type="text" id="hobby" value="MAIN ML!">
+        <button onclick="saveProfile()">Simpan Profil</button>
+        <button onclick="cancelEdit()">Batal</button>
+      </div>
+      <p onclick="toggleSubmenu('model-selection')" id="model-selection-label">Pilih Gaya Model ▼</p>
+      <div id="model-selection" class="settings-submenu">
+        <label for="model-select">Model:</label>
+        <select id="model-select" onchange="changeModel()">
+          <option value="google-gemma-3-27b-it">google/gemma-3-27b-it</option>
+          <option value="google-gemini-2-0-flash-exp">google/gemini-2.0-flash-exp</option>
+          <option value="deepseek-deepseek-r1">deepseek/deepseek-r1</option>
+          <option value="deepseek-deepseek-chat-v3-0324">deepseek/deepseek-chat-v3-0324</option>
+        </select>
+      </div>
+      <p onclick="toggleSubmenu('personality')" id="personality-label">Gaya Personalitas ▼</p>
+      <div id="personality" class="settings-submenu">
+        <p><input type="radio" name="persona" value="profesional"> Profesional</p>
+        <p><input type="radio" name="persona" value="santai"> Santai</p>
+        <p><input type="radio" name="persona" value="humoris"> Humoris</p>
+        <p><input type="radio" name="persona" value="ramah"> Sopan & Ramah</p>
+        <p><input type="radio" name="persona" value="singkat"> Singkat & Padat</p>
+      </div>
+      <p onclick="toggleSubmenu('about')" id="about-label">Tentang ▼</p>
+      <div id="about" class="settings-submenu">
+        <p id="about-version">AI-Enterprise versi 1.0.</p>
+        <p id="about-dev">Dibuat oleh M.Fariz AI Enterprise Ini Masih Tahap Pengembangan!</p>
+      </div>
+      <p onclick="toggleSubmenu('support')" id="support-label">Gmail/WhatsApp ▼</p>
+      <div id="support" class="settings-submenu">
+        <a href="mailto:rizzenterprise01@gmail.com">Email: rizzenterprise01@gmail.com</a>
+        <a href="https://wa.me/6287729044780" target="_blank">WhatsApp: 0877-2904-4780</a>
+      </div>
+      <p onclick="resetChat()" id="reset-label">Reset Chat</p>
+      <p onclick="toggleSubmenu('update-settings')" id="update-label">Pembaruan ▼</p>
+      <div id="update-settings" class="settings-submenu">
+        <p onclick="checkForUpdates()">Cek Pembaruan</p>
+        <p onclick="toggleAutoUpdate()">Pembaruan Otomatis</p>
+        <p onclick="viewUpdateHistory()">Riwayat Pembaruan</p>
+      </div>
+      <p onclick="toggleSubmenu('custom-theme')">Modifikasi Tema ▼</p>
+      <div id="custom-theme" class="settings-submenu">
+        <p onclick="setTheme('light')">Tema Terang</p>
+        <p onclick="setTheme('dark')">Tema Gelap</p>
+        <p onclick="setTheme('blue')">Tema Biru</p>
+        <p onclick="toggleSubmenu('custom-colors')">Tema Kustom ▼</p>
+        <div id="custom-colors" class="settings-submenu">
+          <label>Warna Latar: <input type="color" id="bg-color" value="#f5f5dc"></label><br>
+          <label>Warna Teks: <input type="color" id="text-color" value="#333333"></label><br>
+          <button onclick="applyCustomTheme()">Terapkan</button>
         </div>
-        <div class="settings-icon" onclick="toggleSettings()">⚙️</div>
-      </header>
-      <div id="settings-menu" class="settings-menu">
-        <p onclick="toggleSubmenu('lang')">Bahasa ▼</p>
-        <div id="lang" class="settings-submenu">
-          <p onclick="setLanguage('id')">Indonesian🇮🇩</p>
-          <p onclick="setLanguage('en')">English🇬🇧</p>
-          <p onclick="setLanguage('ja')">Japan🇯🇵</p>
-          <p onclick="setLanguage('ru')">Russia🇷🇺</p>
-          <p onclick="setLanguage('zh')">China🇨🇳</p>
-        </div>
-        <p onclick="toggleSubmenu('profile')" id="profile-label">Profil ▼</p>
-        <div id="profile" class="settings-submenu">
-          <p><strong>Nama:</strong> <span id="profile-name">M.Fariz</span></p>
-          <p><strong>Daerah:</strong> <span id="profile-location">Cianjur/Jabar</span></p>
-          <p><strong>Tanggal Lahir:</strong> <span id="profile-birthday">8 Agustus 2008</span></p>
-          <p><strong>Hobi:</strong> <span id="profile-hobby">MAIN ML!</span></p>
-          <button onclick="editProfile()">Edit Profil</button>
-        </div>
-        <!-- Form Edit Profil -->
-        <div id="edit-profile-form" class="settings-submenu" style="display: none;">
-          <h2>Edit Profil</h2>
-          <label for="name">Nama:</label>
-          <input type="text" id="name" value=".M.Fariz">
-          <label for="location">Daerah:</label>
-          <input type="text" id="location" value="Cianjur/JawaBarat">
-          <label for="birthday">Tanggal Lahir:</label>
-          <input type="date" id="birthday" value="2008-08-08">
-          <label for="hobby">Hobi:</label>
-          <input type="text" id="hobby" value="MAIN ML!">
-          <button onclick="saveProfile()">Simpan Profil</button>
-          <button onclick="cancelEdit()">Batal</button>
-        </div>
-        <p onclick="toggleSubmenu('model-selection')" id="model-selection-label">Pilih Gaya Model ▼</p>
-        <div id="model-selection" class="settings-submenu">
-          <label for="model-select">Model:</label>
-          <select id="model-select" onchange="changeModel()">
-            <option value="google-gemma-3-27b-it">google/gemma-3-27b-it</option>
-            <option value="google-gemini-2-0-flash-exp">google/gemini-2.0-flash-exp</option>
-            <option value="deepseek-deepseek-r1">deepseek/deepseek-r1</option>
-            <option value="deepseek-deepseek-chat-v3-0324">deepseek/deepseek-chat-v3-0324</option>
-          </select>
-        </div>
-        <p onclick="toggleSubmenu('personality')" id="personality-label">Gaya Personalitas ▼</p>
-        <div id="personality" class="settings-submenu">
-          <p><input type="radio" name="persona" value="profesional"> Profesional</p>
-          <p><input type="radio" name="persona" value="santai"> Santai</p>
-          <p><input type="radio" name="persona" value="humoris"> Humoris</p>
-          <p><input type="radio" name="persona" value="ramah"> Sopan & Ramah</p>
-          <p><input type="radio" name="persona" value="singkat"> Singkat & Padat</p>
-        </div>
-        <p onclick="toggleSubmenu('about')" id="about-label">Tentang ▼</p>
-        <div id="about" class="settings-submenu">
-          <p id="about-version">AI-Enterprise versi 1.0.</p>
-          <p id="about-dev">Dibuat oleh M.Fariz AI Enterprise Ini Masih Tahap Pengembangan!</p>
-        </div>
-        <p onclick="toggleSubmenu('support')" id="support-label">Gmail/WhatsApp ▼</p>
-        <div id="support" class="settings-submenu">
-          <a href="mailto:rizzenterprise01@gmail.com">Email: rizzenterprise01@gmail.com</a>
-          <a href="https://wa.me/6287729044780" target="_blank">WhatsApp: 0877-2904-4780</a>
-        </div>
-        <p onclick="resetChat()" id="reset-label">Reset Chat</p>
-        <p onclick="toggleSubmenu('update-settings')" id="update-label">Pembaruan ▼</p>
-        <div id="update-settings" class="settings-submenu">
-          <p onclick="checkForUpdates()">Cek Pembaruan</p>
-          <p onclick="toggleAutoUpdate()">Pembaruan Otomatis</p>
-          <p onclick="viewUpdateHistory()">Riwayat Pembaruan</p>
-        </div>
-          <p onclick="toggleSubmenu('custom-theme')">Modifikasi Tema ▼</p>
-<div id="custom-theme" class="settings-submenu">
-  <p onclick="setTheme('light')">Tema Terang</p>
-  <p onclick="setTheme('dark')">Tema Gelap</p>
-  <p onclick="setTheme('blue')">Tema Biru</p>
-  <p onclick="toggleSubmenu('custom-colors')">Tema Kustom ▼</p>
-  <div id="custom-colors" class="settings-submenu">
-    <label>Warna Latar: <input type="color" id="bg-color" value="#f5f5dc"></label><br>
-    <label>Warna Teks: <input type="color" id="text-color" value="#333333"></label><br>
-    <button onclick="applyCustomTheme()">Terapkan</button>
-  </div>
       </div>
       <div class="center">
         <img src="logo enterprise.png" alt="enterprise Logo" style="width:210px"/>
@@ -339,11 +339,11 @@
         }
       };
       function applyCustomTheme() {
-  const bg = document.getElementById('bg-color').value;
-  const text = document.getElementById('text-color').value;
-  document.body.style.backgroundColor = bg;
-  document.body.style.color = text;
-  alert('Tema kustom diterapkan!');
+      const bg = document.getElementById('bg-color').value;
+      const text = document.getElementById('text-color').value;
+      document.body.style.backgroundColor = bg;
+      document.body.style.color = text;
+      alert('Tema kustom diterapkan!');
       }
       
       function toggleSubmenu(submenuId) {
@@ -493,4 +493,4 @@
       }
     </script>
   </body>
-     </html>
+</html>
